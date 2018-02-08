@@ -1768,3 +1768,31 @@ source:         RIPE
 
 
 ```
+
+# Trying to find out what happened
+Pretty sure they have used Apache and tried cleaning their tracks. All access logs between Jan 2015 and Jan 2018 are missing:
+
+```
+# ls -lhSt access.log*
+-rw-r----- 1 root adm 1,5K feb.   8 16:21 access.log
+-rw-r----- 1 root adm 9,3K feb.   8 05:58 access.log.1
+-rw-r----- 1 root adm  859 feb.   7 03:03 access.log.2.gz
+-rw-r----- 1 root adm  829 feb.   6 04:52 access.log.3.gz
+-rw-r----- 1 root adm  779 feb.   5 06:14 access.log.4.gz
+-rw-r----- 1 root adm  751 feb.   4 06:19 access.log.5.gz
+-rw-r----- 1 root adm 1,9K feb.   3 05:43 access.log.6.gz
+-rw-r----- 1 root adm 1,1K feb.   2 03:53 access.log.7.gz
+-rw-r----- 1 root adm 1,1K feb.   1 05:43 access.log.8.gz
+-rw-r----- 1 root adm  953 jan.  31 06:16 access.log.9.gz
+-rw-r----- 1 root adm  787 jan.  30 02:23 access.log.10.gz
+-rw-r----- 1 root adm  690 jan.  29 06:15 access.log.11.gz
+-rw-r----- 1 root adm 1,7K jan.  27 21:38 access.log.12.gz
+-rw-r----- 1 root adm 5,9K jan.  27 06:25 access.log.13.gz
+-rw-r----- 1 root adm  611 jan.  26 05:30 access.log.14.gz
+-rw-r----- 1 root adm  48K jan.   5  2015 access.log.16.gz
+-rw-r----- 1 root adm  29K des.  28  2014 access.log.17.gz
+-rw-r----- 1 root adm  47K des.  21  2014 access.log.18.gz
+-rw-r----- 1 root adm 222K des.  14  2014 access.log.19.gz
+-rw-r----- 1 root adm  32K des.   8  2014 access.log.20.gz
+-rw-r----- 1 root adm  50K nov.  30  2014 access.log.21.gz
+```

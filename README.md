@@ -1604,7 +1604,7 @@ P#env
 
 # Connection to the weird `[kjournald]` entry
 
-I finally found (unfortunately) a connection the the weird thing that started it all. The 644 connections to the mystery ip in Italy:
+I finally found (unfortunately) a connection the the [weird thing that started it all](https://serverfault.com/questions/896283/why-is-kjournald-showing-up-700-times-in-netstat). The 644 connections to the mystery ip in Italy:
 
 ```
 # finding the process number

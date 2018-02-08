@@ -1769,7 +1769,7 @@ source:         RIPE
 
 ```
 
-# Trying to find out what happened
+## Trying to find out what happened
 Pretty sure they have used Apache and tried cleaning their tracks. All access logs between Jan 2015 and Jan 2018 are missing:
 
 ```
@@ -1797,3 +1797,6 @@ Pretty sure they have used Apache and tried cleaning their tracks. All access lo
 -rw-r----- 1 root adm  50K nov.  30  2014 access.log.21.gz
 ```
 Probably hit by one of the [2016/17 vulnerabilities in Apache](https://httpd.apache.org/security/vulnerabilities_24.html).
+
+## Verified that I was a Monero mining bot  ...
+Searching for `xmrig` gets me [the official GitHub project](https://github.com/xmrig/xmrig) for this Monero CPU miner.

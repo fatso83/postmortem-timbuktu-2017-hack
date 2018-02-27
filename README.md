@@ -1,10 +1,8 @@
 # I have been pwned :(
 
-Machines on the network used by OVH France and Digital Ocean were involved in the botnet that mined crypto. After a "not a breach of our terms" response from Digital Ocean, they finally removed the offending user after me complaining on their dismissal.
+Machines on the network used by OVH France and Digital Ocean were involved in the botnet that mined crypto. After a "not a breach of our terms" response from Digital Ocean, they finally removed the offending user after [me complaining on their dismissal](https://twitter.com/kopseng/status/961858736162664451).
 
 <blockquote class="twitter-tweet" data-lang="no"><p lang="en" dir="ltr">Response from <a href="https://twitter.com/digitalocean?ref_src=twsrc%5Etfw">@digitalocean</a> is that running a botnet employing malware to take over machines using exploits is not a breach of their TOS. <a href="https://twitter.com/hashtag/wtf?src=hash&amp;ref_src=twsrc%5Etfw">#wtf</a> <br><br>They even got a full post-mortem from me pointing to their network: <a href="https://t.co/2Fll8i0Yr5">https://t.co/2Fll8i0Yr5</a> <a href="https://t.co/IGQ0nDacjJ">pic.twitter.com/IGQ0nDacjJ</a></p>&mdash; Carl-Erik Kopseng (@kopseng) <a href="https://twitter.com/kopseng/status/961858736162664451?ref_src=twsrc%5Etfw">9. februar 2018</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
 
 This repo includes the files used in the takeover (that I could find).
 

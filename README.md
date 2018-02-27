@@ -976,11 +976,10 @@ Note the `*.o` files. Those are object files produced when compiling a program. 
 
 A lot of funk! You can see some idiot made these (scroll down). I 
 [googled one of the strings, "Kaiten wa goraku"](https://www.google.no/search?client=ubuntu&channel=fs&q=Kaiten+wa+goraku&ie=utf-8&oe=utf-8&gfe_rd=cr&dcr=0&ei=KV98Wu-PH9jEtAG8kqGQBg)
-, and it seems that this backdoor/exploit has [roots back to 2013].
+, and it seems that this backdoor/exploit has roots back to 2013.
 
 I found the [source code](https://dl.packetstormsecurity.net/irc/kaiten.c) through one of the top hits on Google.
-Also included it here (`kaiten.c`). I also found a [detailed step by step analysis]
-(https://books.google.no/books?id=lRjO8opcPzIC&pg=PA413&lpg=PA413&dq=Kaiten+wa+goraku&source=bl&ots=aXXOlcpv0o&sig=MvPmweYu3lcZ9zH76Szgwl9uRBY&hl=no&sa=X&ved=0ahUKEwiIgMGYxJbZAhUDWCwKHaxgA0kQ6AEIRDAE#v=onepage&q=Kaiten%20wa%20goraku&f=false)
+Also included it here (`kaiten.c`). I also found a [detailed step by step analysis](https://books.google.no/books?id=lRjO8opcPzIC&pg=PA413&lpg=PA413&dq=Kaiten+wa+goraku&source=bl&ots=aXXOlcpv0o&sig=MvPmweYu3lcZ9zH76Szgwl9uRBY&hl=no&sa=X&ved=0ahUKEwiIgMGYxJbZAhUDWCwKHaxgA0kQ6AEIRDAE#v=onepage&q=Kaiten%20wa%20goraku&f=false)
 of the this actual malware, although probably an old version. Supposedly I was hit by a TSUNAMI from a "rotating pleasure ring" ...
 
 [Some sibling](https://www.trendmicro.com/vinfo/us/threat-encyclopedia/malware/elf64_kaiten.aa) described 
